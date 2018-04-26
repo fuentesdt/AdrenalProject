@@ -1,0 +1,3 @@
+
+python /opt/apps/pyradiomics/radiomics/scripts/commandlinebatch.py  ADRENAL_PATH_CON_uchar.csv testout.csv -p Params.yaml -v -v -v -v -v -v
+
