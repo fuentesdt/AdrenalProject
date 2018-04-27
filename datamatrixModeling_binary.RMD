@@ -71,6 +71,7 @@ set.seed(25)
 
 #Load data
 datamatrix <- read.csv(params$csvPath)
+datamatrix$phenotype  = as.factor(ifelse(datamatrix[,"phenotype"] == 1 , "ACC", "ACA")) 
 allinputs <- colnames(datamatrix)
 inputcols <- allinputs [grep("original_*",colnames(datamatrix))]
 if(!is.null(params$inputs)){
