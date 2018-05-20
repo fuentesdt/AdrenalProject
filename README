@@ -1,4 +1,10 @@
 
-python /opt/apps/pyradiomics/radiomics/scripts/commandlinebatch.py  ADRENAL_PATH_CON_uchar.csv testout.csv -p Params.yaml -v -v -v -v -v -v
+python /opt/apps/pyradiomics/radiomics/scripts/commandlinebatch.py  ADRENAL_PATH_CON_long.csv longout.csv -p Params.yaml -v -v -v -v -v -v
+Rscript -e "rmarkdown::render( 'datamatrixModeling_clinical.RMD', output_file = 'clinicalfile.pdf',params = list( csvPath='longout.csv', target='phenotype', positive_class='ACC', inputs=NULL , leaveOneOut=TRUE, test_csv=NULL, rescale=FALSE, removeCorrelated=TRUE, plot=TRUE, semisupervised=FALSE, kClusters=as.numeric(9), genetic=FALSE, boruta=TRUE, univariate=TRUE, unipValThresh=0.05 ))"
 
+
+old
+======
+
+python /opt/apps/pyradiomics/radiomics/scripts/commandlinebatch.py  ADRENAL_PATH_CON_uchar.csv testout.csv -p Params.yaml -v -v -v -v -v -v
 Rscript -e "rmarkdown::render( 'datamatrixModeling_binary.RMD', output_file = 'myfile.pdf',params = list( csvPath='testout.csv', target='phenotype', positive_class='ACC', inputs=NULL , leaveOneOut=TRUE, test_csv=NULL, rescale=FALSE, removeCorrelated=TRUE, plot=TRUE, semisupervised=FALSE, kClusters=as.numeric(9), genetic=FALSE, boruta=TRUE, univariate=TRUE, unipValThresh=0.05 ))"
