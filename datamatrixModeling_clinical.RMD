@@ -190,6 +190,14 @@ ds$clusters.conv <- as.factor(ds$clusters.conv) #change to factor not int
 Filteredinputs <- setdiff(names(ds),params$target)
 }
 
+#HACK need clinical columns
+if( 'MRN' %in% Filteredinputs) Filteredinputs=Filteredinputs[Filteredinputs!= 'MRN']
+if(!'enhancement_difference' %in% Filteredinputs) Filteredinputs=c(Filteredinputs,'enhancement_difference')
+if(!'necrosis' %in% Filteredinputs) Filteredinputs=c(Filteredinputs,'necrosis')
+if(!'enhancement.pre' %in% Filteredinputs) Filteredinputs=c(Filteredinputs,'enhancement.pre')
+if(!'enhancement.con' %in% Filteredinputs) Filteredinputs=c(Filteredinputs,'enhancement.con')
+ds = dsraw [c(params$target,Filteredinputs)]
+
 ```
 
 ## Pre-Processing results: 
