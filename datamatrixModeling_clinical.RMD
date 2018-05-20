@@ -416,6 +416,9 @@ if(params$leaveOneOut){
   maxacc <- max(unlist(acc))
   maxmodels <- names(which(acc==maxacc))
 
+  print(variableSelections)
+  print (acc )
+
   #plot
   par(mar=c(8,5,1,1))
   barplot(unlist(acc),las=2, ylim=c(0,1),
